@@ -3,35 +3,46 @@
 #include <algorithm>
 #include <iterator>
 using namespace std;
-class Solution {
+class Solution
+{
 public:
-    bool containsDuplicate(vector<int>& nums) {
-       sort(nums.begin(),nums.end());
-        bool result=false;
-        for(int i=0;i<nums.size();i++)
-        {
-          if(nums[i]==nums[i+1])
-          {
-            result=true;
-            break;
-          } 
-            
-        }
-        return result;
+    int lengthOfLastWord(string s)
+    {
     }
 };
 int main()
 {
-    vector<int> nums = {1,1,1,3,3,4,3,2,4,2};
-    Solution sol;
-    bool res=  sol.containsDuplicate(nums);
-    if(res==true){
-        cout<<"true";
+    string s;
+    getline(cin, s);
+    int index=0;
+    const int size=s.size();
+    for (int i = 1; i <size; i++)
+    {
+        if(s[size-i]==' '){
+            s.pop_back();
+        }
+        else{
+           break;
+        }
+        
     }
-    else{
-        cout<<"false";
+    reverse(s.begin(),s.end());
+    for (int i = 0; i <s.size(); i++)
+    {
+       
+        if (s[i] == ' ')
+        {
+           index=i;
+           
+           break;
+        }
     }
-    return 0;
+    cout<<index;
+    string w=s.substr(0,index);
+    if (index==0){
+        cout<<s.size();
+    }
 
-  
+    cout<<w;
+    return 0;
 }
