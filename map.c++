@@ -48,5 +48,12 @@ int main()
     else{
         cout<<"false";
     }
+    map<char,int>m;
+    m['a']=40;m['b']=45;m['c']=50;
+    map<char,int>::key_compare com=m.key_comp();
+    auto it = m.begin();
+    for(;com(it->first,'c');it++){
+      cout<<it->first<<"--->"<<it->second<<endl;
+    }
     return 0;
 }
