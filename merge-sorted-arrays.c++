@@ -23,6 +23,7 @@ public:
      else{
         nums1[k]=nums1[i];
         i--;
+        k--;
      }
    }
    while(j!=0){
